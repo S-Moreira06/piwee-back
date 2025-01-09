@@ -23,16 +23,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     echo json_encode(['error' => 'Méthode non autorisée.']);
 };
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
-    $id = intval($_POST['id']);
-    try {
-        $query = $pdo->prepare('SELECT * FROM your_table_name WHERE id = ?');
-        $query->execute([$id]);
-        $data = $query->fetch(PDO::FETCH_ASSOC);
+// if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
+//     $id = intval($_POST['id']);
+//     try {
+//         $query = $pdo->prepare('SELECT * FROM your_table_name WHERE id = ?');
+//         $query->execute([$id]);
+//         $data = $query->fetch(PDO::FETCH_ASSOC);
 
-        echo json_encode($data);
-    } catch (PDOException $e) {
-        echo json_encode(['error' => 'Erreur : ' . $e->getMessage()]);
-    }
-}
+//         echo json_encode($data);
+//     } catch (PDOException $e) {
+//         echo json_encode(['error' => 'Erreur : ' . $e->getMessage()]);
+//     }
+// }
 
